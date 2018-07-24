@@ -30,7 +30,7 @@ set_env("C:/Program Files/QGIS 2.18")
 
 
 ### Load flood extent
-flood_tiff = raster("Data/maria_clip_2.tif")
+flood_tiff = raster("Data/maria_flood.tif")
 
 
 ### Get desired coordinate reference system

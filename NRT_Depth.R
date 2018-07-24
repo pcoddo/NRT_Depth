@@ -12,7 +12,8 @@
 ##  7.19.18 
 ####################################################
 
-
+# Initialize
+source("Scripts/Initialize.R")
 
 ### Polygonize Raster
 # Set Parameters
