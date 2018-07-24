@@ -6,7 +6,9 @@ This code intakes a detected flood extent and applies the method described in [C
 
 ### Instructions
 1. Requires installation of [R](https://www.r-project.org/) and [QGIS](https://www.qgis.org/en/site/) on local machine. Software version information used here is as follows:
-2. ...
+2. Place flood extent raster in `/Data` folder
+3. Place digital elevation model in `/Data/DEM` folder
+...
 
 ### Required R Packages
 * [RQGIS](https://github.com/jannes-m/RQGIS)
