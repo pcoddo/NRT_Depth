@@ -99,15 +99,17 @@ extent_box = bbox(extent)
 flood_chain = readOGR("Layers/flood_chain.shp")
 
 # Loop over each shape to produce a TIN
-run_qgis(alg = "saga:triangulation",
-         SHAPES = flood_chain,
-         FIELD = 'Elevation',
-         OUTPUT_EXTENT = sprintf("%s,%s,%s,%s", extent_box[1], extent_box[3], extent_box[2], extent_box[4]), 
-         TARGET_USER_SIZE = "90",
-         TARGET_USER_FITS = "0",
-         TARGET_OUT_GRID = "Layers/tin_out.tif")
-
-
+# for(i in 1:npoly){
+  
+  run_qgis(alg = "saga:triangulation",
+           SHAPES = flood_chain,
+           FIELD = 'Elevation',
+           OUTPUT_EXTENT = sprintf("%s,%s,%s,%s", extent_box[1], extent_box[3], extent_box[2], extent_box[4]), 
+           TARGET_USER_SIZE = "90",
+           TARGET_USER_FITS = "0",
+           TARGET_OUT_GRID = "Layers/tin_out.tif")
+           TARGET_OUT_GRID = paste0("Layers/tin_out_", i, ".tif")
+#}
 
 ### Use raster calculator to subtract from underlying DEM
 # Clip dem to extent
