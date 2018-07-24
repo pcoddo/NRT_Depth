@@ -2,7 +2,7 @@
 
 This code intakes a detected flood extent and applies the method described in [Cham et al. 2011](https://www.witpress.com/elibrary/wit-transactions-on-the-built-environment/168/34837) to estimate inundation depth:
 
-![Workflow](https://github.com/pcoddo/NRT_Depth/Images/workflow.png)
+![Workflow](https://github.com/pcoddo/NRT_Depth/blob/master/Images/Workflow.png)
 
 ### Instructions
 1. Requires installation of [R](https://www.r-project.org/) and [QGIS](https://www.qgis.org/en/site/) on local machine. Software version information used here is as follows:
