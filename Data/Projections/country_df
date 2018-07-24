@@ -1,0 +1,7 @@
+structure(list(Country = c("Myanmar", "Thailand", "Cambodia", 
+"Vietnam", "Laos_PDR"), EPSG = c(32646L, 32648L, 32648L, 3405L, 
+32648L), prj4 = c("+proj=utm +zone=46 +datum=WGS84 +units=m +no_defs", 
+"+proj=utm +zone=48 +datum=WGS84 +units=m +no_defs", "+proj=utm +zone=48 +datum=WGS84 +units=m +no_defs", 
+"+proj=utm +zone=48 +ellps=WGS84 +towgs84=-191.90441429,-39.30318279,-111.45032835,0.00928836,-0.01975479,0.00427372,0.252906278 +units=m +no_defs", 
+"+proj=utm +zone=48 +datum=WGS84 +units=m +no_defs")), .Names = c("Country", 
+"EPSG", "prj4"), class = "data.frame", row.names = c(NA, -5L))
