@@ -25,8 +25,6 @@ flood_poly = run_qgis(alg = "gdalogr:polygonize",
 
 
 ### Select flooded attributes (DN = 1)
-get_args_man(alg = "qgis:extractbyattribute")
-
 run_qgis(alg = "qgis:extractbyattribute",
          INPUT = flood_poly,
          FIELD = "DN",
@@ -40,15 +38,13 @@ run_qgis(alg = "qgis:extractbyattribute",
 flood_select = readOGR("Layers/flood_select.shp")
 npoly = length(flood_select$DN)
 flood_select@data$DN = 1:npoly
-writeOGR(flood_select, dsn = "C:/Users/poddo/Documents/Mekong/Depth_git/Layers", 
+writeOGR(flood_select, dsn = "C:/Users/poddo/Documents/GitHub/NRT_Depth", 
          layer = "flood_select", 
          driver = "ESRI Shapefile", 
          overwrite_layer = T)
 
 
 ### Convert polygon to polyline
-get_args_man(alg = "qgis:polygonstolines")
-
 flood_line = run_qgis(alg = "qgis:polygonstolines",
                       INPUT = flood_select,
                       OUTPUT = file.path(tempdir(), "flood_line.shp"),
@@ -56,8 +52,6 @@ flood_line = run_qgis(alg = "qgis:polygonstolines",
 
 
 ### Create points along line
-get_args_man(alg = "qgis:createpointsalonglines")
-
 run_qgis(alg = "qgis:createpointsalonglines",
          Lines = flood_line,
          Distance = "100",
@@ -105,8 +99,6 @@ extent_box = bbox(extent)
 flood_chain = readOGR("Layers/flood_chain.shp")
 
 # Loop over each shape to produce a TIN
-get_args_man(alg = "saga:triangulation")
-
 run_qgis(alg = "saga:triangulation",
          SHAPES = flood_chain,
          FIELD = 'Elevation',
@@ -126,7 +118,6 @@ run_qgis(alg = "saga:clipgridwithpolygon",
 
 
 # Raster calculator
-get_args_man(alg = "saga:rastercalculator")
 run_qgis(alg = "saga:rastercalculator",
          GRIDS = "Layers/tin_out.tif",
          XGRIDS = "Layers/dem_clip.tif",
